@@ -3,7 +3,7 @@
 $part_include = str_replace("controllers/product", "", __DIR__);
 require_once realpath($part_include . "/controllers/controller.php");
 
-class ProductsController extends controller
+class ProductsController extends Controller
 {
     private $db;
     private $result;

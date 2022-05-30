@@ -1,5 +1,5 @@
 <?php
-class controller
+class Controller
 {
     private $db;
 
