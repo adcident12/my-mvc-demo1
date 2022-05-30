@@ -42,11 +42,11 @@ $router->map("GET", "/admin/products/[i:product_id]/[create|edit:mode]", functio
 });
 
 //Api routes
-$router->map("GET", "/api/v1/list", function () {
+$router->map("GET", "/api/v1/lists", function () {
     require __DIR__ . "/cmd/product/get_list_all.php";
 });
 
-$router->map("POST", "/api/v1/list/[i:id]", function ($id) {
+$router->map("GET", "/api/v1/list/[i:id]", function ($id) {
     require __DIR__ . "/cmd/product/get_by_id.php";
 });
 
@@ -60,6 +60,14 @@ $router->map("POST", "/api/v1/product/edit", function () {
 
 $router->map("POST", "/api/v1/product/delete", function () {
     require __DIR__ . "/cmd/product/delete.php";
+});
+
+$router->map("POST", "/api/v1/customer/register", function () {
+    require __DIR__ . "/cmd/auth/register_customer.php";
+});
+
+$router->map("POST", "/api/v1/customer/login", function () {
+    require __DIR__ . "/cmd/auth/login_customer.php";
 });
 
 $match = $router->match();

@@ -9,7 +9,7 @@ require_once realpath($part . "/controllers/product/products_controller.php");
 $products = new ProductsController();
 
 $param = array();
-$param["id"] = isset($_GET["id"]) && !empty($_GET["id"]) ? $_GET["id"] : "";
+$param["id"] = isset($id) && !empty($id) ? $id : "";
 
 $data = json_encode($param);
 $data = json_decode($data);
