@@ -23,7 +23,7 @@ class ProductsController extends controller
         require_once realpath($part . "/model/products_model.php");
     }
 
-    public function getAll()
+    public function getProductAll()
     {
         $this->result = null;
         try {

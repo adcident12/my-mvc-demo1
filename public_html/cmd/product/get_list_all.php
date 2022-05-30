@@ -7,7 +7,7 @@ $part = str_replace("cmd/product", "", __DIR__);
 require_once realpath($part . "/controllers/product/products_controller.php");
 
 $products = new ProductsController();
-$stmt = $products->getAll();
+$stmt = $products->getProductAll();
 
 if ($stmt) {
     $resultCount = $stmt->rowCount();
