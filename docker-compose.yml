@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  php:
+    build:
+      context: ./php
+    ports:
+      - "9500:80"
+    volumes:
+      - ./public_html:/var/www/html
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Bangkok
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "9001:80"
+    environment:
+      - PMA_ARBITRARY=1
