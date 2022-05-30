@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: database
--- Generation Time: May 30, 2022 at 04:09 AM
+-- Generation Time: May 30, 2022 at 10:26 AM
 -- Server version: 5.7.38
 -- PHP Version: 8.0.19
 
@@ -18,20 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `paging`
+-- Database: `demo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `list` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
-  `shor_description` mediumtext NOT NULL,
+  `short_description` mediumtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -41,9 +41,9 @@ CREATE TABLE `list` (
 --
 
 --
--- Indexes for table `list`
+-- Indexes for table `products`
 --
-ALTER TABLE `list`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,9 +51,9 @@ ALTER TABLE `list`
 --
 
 --
--- AUTO_INCREMENT for table `list`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `list`
+ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
