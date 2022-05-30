@@ -34,4 +34,62 @@ class ProductsController extends Controller
         }
         return $this->result;
     }
+
+    public function getProductById()
+    {
+        $this->result = null;
+        try {
+            $product = new ProductsModel($this->db);
+            $this->result = $product->getById($this->id);
+        } catch (\Exception $e) {
+            $this->result = false;
+        }
+        return $this->result;
+    }
+
+    public function insertProduct()
+    {
+        $this->result = null;
+        try {
+            $product = new ProductsModel($this->db);
+            $product->name = $this->name;
+            $product->description = $this->description;
+            $product->short_description = $this->short_description;
+            $product->price = $this->price;
+            $this->result = $product->insert();
+        } catch (\Exception $e) {
+            $this->result = false;
+        }
+        return $this->result;
+    }
+
+    public function updateProduct()
+    {
+        $this->result = null;
+        try {
+            $product = new ProductsModel($this->db);
+            $product->id = $this->id;
+            $product->name = $this->name;
+            $product->description = $this->description;
+            $product->short_description = $this->short_description;
+            $product->price = $this->price;
+            $this->result = $product->update();
+        } catch (\Exception $e) {
+            $this->result = false;
+        }
+        return $this->result;
+    }
+
+    public function deleteProduct()
+    {
+        $this->result = null;
+        try {
+            $product = new ProductsModel($this->db);
+            $product->id = $this->id;
+            $this->result = $product->delete();
+        } catch (\Exception $e) {
+            $this->result = false;
+        }
+        return $this->result;
+    }
 }

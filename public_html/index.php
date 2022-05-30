@@ -46,6 +46,22 @@ $router->map("GET", "/api/v1/list", function () {
     require __DIR__ . "/cmd/product/get_list_all.php";
 });
 
+$router->map("POST", "/api/v1/list/[i:id]", function ($id) {
+    require __DIR__ . "/cmd/product/get_by_id.php";
+});
+
+$router->map("POST", "/api/v1/product/create", function () {
+    require __DIR__ . "/cmd/product/insert.php";
+});
+
+$router->map("POST", "/api/v1/product/edit", function () {
+    require __DIR__ . "/cmd/product/update.php";
+});
+
+$router->map("POST", "/api/v1/product/delete", function () {
+    require __DIR__ . "/cmd/product/delete.php";
+});
+
 $match = $router->match();
 
 if (is_array($match) && is_callable($match['target'])) {
