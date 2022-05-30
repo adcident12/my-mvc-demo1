@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: database
--- Generation Time: May 30, 2022 at 10:26 AM
+-- Generation Time: May 30, 2022 at 02:11 PM
 -- Server version: 5.7.38
 -- PHP Version: 8.0.19
 
@@ -32,6 +32,7 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `short_description` mediumtext NOT NULL,
+  `price` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
