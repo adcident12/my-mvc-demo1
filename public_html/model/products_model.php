@@ -1,8 +1,8 @@
 <?php
-class Paging
+class ProductsModel
 {
     private $conn;
-    private $db_table = "list";
+    private $db_table = "products";
 
     public function __construct($db)
     {

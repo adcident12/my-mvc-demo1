@@ -28,7 +28,7 @@ $router->map("GET", "/products/detail/[i:product_id]", function ($product_id) {
 });
 
 
-// Addminerd routes
+// Admin routes
 $router->map("GET", "/admin", function () {
     require __DIR__ . "/views/admin/index.php";
 });
@@ -43,7 +43,7 @@ $router->map("GET", "/admin/products/[i:product_id]/[create|edit:mode]", functio
 
 //Api routes
 $router->map("GET", "/api/v1/list", function () {
-    require __DIR__ . "/controllers/list/get_all.php";
+    require __DIR__ . "/cmd/product/get_list_all.php";
 });
 
 $match = $router->match();

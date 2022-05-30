@@ -3,20 +3,12 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Methods: GET');
 
+$part = str_replace("cmd/product", "", __DIR__);
+require_once realpath($part . "/controllers/product/products_controller.php");
 
-$part = str_replace("controllers/list", "", __DIR__);
-require_once realpath($part . "/vendor/autoload.php");
-$dotenv = Dotenv\Dotenv::createImmutable($part);
-$dotenv->load();
+$products = new ProductsController();
+$stmt = $products->getAll();
 
-include($part . "/config/database.php");
-include($part . "/model/paging.php");
-$database = new Database($_ENV['HOST'], $_ENV['DATABASE_NAME'], $_ENV['USERNAME'], $_ENV['PASSWORD']);
-$db = $database->getConnection();
-
-$result = new Paging($db);
-
-$stmt = $result->getAll();
 if ($stmt) {
     $resultCount = $stmt->rowCount();
     if ($resultCount > 0) {
